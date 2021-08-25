@@ -70,11 +70,7 @@ class PoetryDjangoOperator(BaseOperator):
             script_file.write(
                 f'os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vsuite.config.settings") \n'
             )
-            script_file.write("print('Current Working Directory ' , os.getcwd()) \n\n")
-            script_file.write("print('Working Dir Files' , os.listdir()) \n\n")
-            script_file.write("print('Current Base DIR' , os.getenv('BASE_DIR')) \n\n")
             script_file.write("BASE_DIR = os.path.dirname(os.path.dirname(__file__)) \n\n")
-            script_file.write("print('Current Base DIR' , os.getenv('BASE_DIR')) \n\n")
             script_file.write("django.setup() \n\n")
             for template_line in open(script_template_file):
                 script_file.write(template_line)
