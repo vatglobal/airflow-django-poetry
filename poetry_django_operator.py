@@ -48,8 +48,6 @@ class PoetryDjangoOperator(BaseOperator):
     def _write_script_file(self, script_filename, script_template_file):
         python_source = (
             "def execution_function(*args, **kwargs):\n"
-            f"    print('args', args)\n"
-            f"    print('kwargs', kwargs)\n"
             f"    from {self.function_file_path} import {self.function_name}\n"
             f"    {self.function_name}(*args, **kwargs)\n"
         )
